@@ -1,9 +1,6 @@
 'use strict'
 const path = require('path')
 const defaultSettings = require('./src/settings.js')
-const VueComponents = require('unplugin-vue-components/webpack')
-const { ElementUiResolver } = require('unplugin-vue-components/resolvers')
-const kebabCase = require('lodash.kebabcase');
 
 function resolve(dir) {
   return path.join(__dirname, dir)
@@ -38,7 +35,7 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
-    },
+    }
     // before: require('./mock/mock-server.js')
   },
   configureWebpack: {
@@ -49,26 +46,7 @@ module.exports = {
       alias: {
         '@': resolve('src')
       }
-    },
-    plugins: [
-      VueComponents({
-        resolvers: [
-          ElementUiResolver(),
-          name => {
-            if (name.match(/^El[A-Z]/)) {
-              const compName = name.slice(2)
-              const partialName = kebabCase(compName)
-              return {
-                path: `element-ui/packages/${partialName}`,
-                sideEffects: [`element-ui/lib/theme-chalk/${partialName}.css`],
-              };
-            }
-            return null;
-          },
-        ],
-        transformer: 'vue2',
-      })
-    ]
+    }
   },
   chainWebpack(config) {
     // it can improve the speed of the first screen, it is recommended to turn on preload
