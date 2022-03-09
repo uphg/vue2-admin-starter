@@ -1,6 +1,6 @@
 # Vue Element 后台管理
 
-基于 vue admin template ，升级了依赖的版本，去掉 mockjs、jest 单元测试
+基于 vue admin template ，升级了依赖的版本，去掉 mockjs、jest 单元测试，添加 composition-api
 
 ## 包升级记录
 
@@ -12,12 +12,4 @@
 | `js-cookie`         | `2.2.0 -> 3.0.1`   |
 | `normalize.css`     | `7.0.0 -> 8.0.1`   |
 | `path-to-regexp`    | `2.4.0 -> 6.2.0`   |
-|                     |                    |
-|                     |                    |
-
-## 添加 UI 组件按需引入插件
-
-```
-yarn add -D unplugin-vue-components
-```
 
