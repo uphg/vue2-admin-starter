@@ -44,7 +44,7 @@
 </template>
 
 <script>
-import { getList } from '@/api/table'
+import createList from './list'
 
 export default {
   filters: {
@@ -59,20 +59,8 @@ export default {
   },
   data() {
     return {
-      list: null,
-      listLoading: true
-    }
-  },
-  created() {
-    this.fetchData()
-  },
-  methods: {
-    fetchData() {
-      this.listLoading = true
-      getList().then(response => {
-        this.list = response.data.items
-        this.listLoading = false
-      })
+      list: createList(),
+      listLoading: false
     }
   }
 }

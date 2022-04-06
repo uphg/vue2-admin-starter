@@ -1,12 +1,12 @@
 'use strict'
 const path = require('path')
-const defaultSettings = require('./src/settings.js')
+const settings = require('./src/settings.js')
 
 function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'Vue2 Admin Template' // page title
+const name = settings.title || 'Vue Admin Template' // page title
 
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
@@ -44,7 +44,8 @@ module.exports = {
     name: name,
     resolve: {
       alias: {
-        '@': resolve('src')
+        '@': resolve('src'),
+        '~src': resolve('src')
       }
     }
   },

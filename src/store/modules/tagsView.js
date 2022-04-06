@@ -1,6 +1,28 @@
+import router from '../../router'
+
+console.log('router')
+console.log(router)
+
+const defaultTags = [
+  {
+    title: 'Dashboard',
+    path: '/dashboard',
+    meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+  },
+  {
+    title: 'Form',
+    path: '/form/index',
+    meta: { title: 'Form', icon: 'form', affix: true }
+  }
+]
+
 const state = {
-  visitedViews: [],
-  cachedViews: []
+  visitedViews: [
+    ...defaultTags
+  ],
+  cachedViews: [
+    ...defaultTags
+  ]
 }
 
 const mutations = {
