@@ -5,9 +5,9 @@ console.log(router)
 
 const defaultTags = [
   {
-    title: 'Dashboard',
-    path: '/dashboard',
-    meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+    title: 'Home',
+    path: '/home',
+    meta: { title: 'Home', icon: 'home', affix: true }
   },
   {
     title: 'Form',

@@ -1,6 +1,6 @@
 <template>
-  <div class="dashboard-container">
-    <div class="dashboard-text">name: {{ name }}</div>
+  <div class="home-container">
+    <div class="home-text">name: {{ name }}</div>
     <HelloWorldVue msg="hi" />
   </div>
 </template>
@@ -10,7 +10,7 @@ import { mapGetters } from 'vuex'
 import HelloWorldVue from '../../components/HelloWorld.vue'
 
 export default {
-  name: 'Dashboard',
+  name: 'Home',
   components: { HelloWorldVue },
   computed: {
     ...mapGetters([
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.dashboard {
+.home {
   &-container {
     margin: 30px;
   }
