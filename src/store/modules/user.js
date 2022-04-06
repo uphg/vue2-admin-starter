@@ -1,5 +1,6 @@
 import { getToken, setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
+import { user, token } from '~src/constant/user'
 
 const getDefaultState = () => {
   return {
@@ -33,7 +34,7 @@ const actions = {
     return new Promise((resolve, reject) => {
       console.log('登录成功')
       const data = {
-        token: 'admin-token'
+        token: token
       }
       commit('SET_TOKEN', data.token)
       setToken(data.token)
@@ -55,12 +56,7 @@ const actions = {
       // getInfo(state.token).then(response => {
       //   const { data } = response
 
-      const data = {
-        roles: ['admin'],
-        introduction: 'I am a super administrator',
-        avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
-        name: 'Super Admin'
-      }
+      const data = user
       if (!data) {
         return reject('Verification failed, please Login again.')
       }

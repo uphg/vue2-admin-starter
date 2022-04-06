@@ -5,12 +5,14 @@ import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import { getToken } from '@/utils/auth' // get token from cookie
 import getPageTitle from '@/utils/get-page-title'
+import asyncRouter from '~src/constant/asyncRouter'
+import createAsyncRouter from '@/utils/create-async-router'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
 const whiteList = ['/login'] // no redirect whitelist
 
-router.beforeEach(async(to, from, next) => {
+router.beforeEach(async (to, from, next) => {
   // start progress bar
   NProgress.start()
 
@@ -33,8 +35,18 @@ router.beforeEach(async(to, from, next) => {
         try {
           // get user info
           await store.dispatch('user/getInfo')
+          const newRouter = createAsyncRouter(asyncRouter)
+          console.log('newRouter')
+          console.log(newRouter)
+          newRouter.forEach((item) => {
+            router.addRoute(item)
+            console.log('路由添加了')
+          })
+          // router.addRoute(newRouter)
 
-          next()
+          console.log('# router')
+          console.log(router)
+          next({ ...to, replace: true })
         } catch (error) {
           // remove token and go to login page to re-login
           await store.dispatch('user/resetToken')

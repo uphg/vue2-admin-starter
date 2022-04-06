@@ -29,9 +29,9 @@ export const baseRoutes = [
       component: () => import('@/views/home/index'),
       meta: { title: 'Home', icon: 'dashboard', affix: true }
     }]
-  },
+  }
 
-  {
+  /* {
     path: '/example',
     component: Layout,
     redirect: '/example/table',
@@ -64,9 +64,9 @@ export const baseRoutes = [
         meta: { title: 'Form', icon: 'form', affix: true }
       }
     ]
-  },
+  } */
 
-  {
+  /* {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',
@@ -134,10 +134,10 @@ export const baseRoutes = [
         meta: { title: 'External Link', icon: 'link' }
       }
     ]
-  },
+  }, */
 
   // 404 page must be placed at the end !!!
-  { path: '*', redirect: '/404', hidden: true }
+  // { path: '*', redirect: '/404', hidden: true }
 ]
 
 const createRouter = () => new Router({
