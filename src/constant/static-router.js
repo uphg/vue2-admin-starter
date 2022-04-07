@@ -11,7 +11,7 @@ const asyncRouter = [
         name: 'form',
         component: 'form',
         display: true,
-        meta: { title: '表单', icon: 'form' }
+        meta: { title: '表单', icon: 'form', affix: true }
       }
     ]
   },

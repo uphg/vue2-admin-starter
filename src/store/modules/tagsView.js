@@ -1,8 +1,3 @@
-import router from '../../router'
-
-console.log('router')
-console.log(router)
-
 const defaultTags = [
   {
     title: 'Home',

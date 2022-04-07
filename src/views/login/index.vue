@@ -88,7 +88,7 @@ export default {
   },
   watch: {
     $route: {
-      handler: function(route) {
+      handler: function (route) {
         this.redirect = route.query && route.query.redirect
       },
       immediate: true
@@ -111,7 +111,11 @@ export default {
           this.loading = true
           console.log('登录执行了')
           this.$store.dispatch('user/login', this.loginForm).then(() => {
-            this.$router.push({ path: this.redirect || '/' })
+            this.$router.push({ path: this.redirect || '/' }).catch((e) => {
+              // 获取重定向时抛出的错误
+              // const message = e?.message
+              // message && console.log(`Warn: ${message}`)
+            })
             this.loading = false
           }).catch(() => {
             this.loading = false
