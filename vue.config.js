@@ -35,8 +35,21 @@ module.exports = {
     overlay: {
       warnings: false,
       errors: true
+    },
+    proxy: {
+      '/api': {
+        target: process.env.VUE_API_URL,
+        changeOrigin: true,
+        // logLevel: 'debug', // default proxy debug
+        onProxyReq(proxyReq, req, res) {
+          // [HPM] POST /uni-chain-admin/api/v1/captcha -> http://10.0.5.20:8001/
+          const { path, protocol, method } = proxyReq || {}
+          const host = proxyReq.getHeader('host')
+          const url = req.url
+          console.log(`${method} - ${url} -> ${protocol}//${host}${path}`)
+        }
+      }
     }
-    // before: require('./mock/mock-server.js')
   },
   configureWebpack: {
     // provide the app's title in webpack's name field, so that
