@@ -28,6 +28,8 @@ module.exports = {
     "vue/multiline-html-element-content-newline": "off",
     "vue/name-property-casing": ["error", "PascalCase"],
     "vue/no-v-html": "off",
+    'vue/html-self-closing': 'off',
+    'vue/multi-word-component-names': 'off',
     'accessor-pairs': 2,
     'arrow-spacing': [2, {
       'before': true,
@@ -194,9 +196,10 @@ module.exports = {
     'yoda': [2, 'never'],
     'prefer-const': 2,
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
-    'object-curly-spacing': [2, 'always', {
-      objectsInObjects: false
-    }],
+    // 'object-curly-spacing': [2, 'always', {
+    //   objectsInObjects: false
+    // }],
+    'object-curly-spacing': ["error", "always"],
     'array-bracket-spacing': [2, 'never']
   }
 }
