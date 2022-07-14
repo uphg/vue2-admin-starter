@@ -42,7 +42,7 @@ module.exports = {
         changeOrigin: true,
         // logLevel: 'debug', // default proxy debug
         onProxyReq(proxyReq, req, res) {
-          // [HPM] POST /uni-chain-admin/api/v1/captcha -> http://10.0.5.20:8001/
+          // [HPM] POST /uni-chain-admin/api/v1/captcha -> http://xx.x.x.xx:8233/
           const { path, protocol, method } = proxyReq || {}
           const host = proxyReq.getHeader('host')
           const url = req.url
